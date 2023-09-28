@@ -1,10 +1,7 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import MediaViewSet
-
-router = DefaultRouter()
-router.register(r'media', MediaViewSet)
+from django.urls import path
+from .views import upload_image, get_images  # Убедитесь, что здесь нет MediaViewSet
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('media/upload/', upload_image, name='upload_image'),
+    path('media/get_images/', get_images, name='get_images'),
 ]
